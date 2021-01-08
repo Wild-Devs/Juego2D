@@ -1,14 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Move2D : MonoBehaviour
 {
     //MOVEMENT//
-    public float movementSpeed;
-    public float defaultSpeed;
-    private float runSpeed;
     private Rigidbody2D rb;
     private bool facingRight;
     public float dashSpeed;
@@ -16,6 +12,11 @@ public class Move2D : MonoBehaviour
     public float startDashTime;
     private int direction;
     public Animator animator;
+    public float cooldownTime;
+    private float nextFireTime;
+    private float movementSpeed;
+    private float defaultSpeed;
+    private float runSpeed;
 
     //JUMP//
     private bool isGrounded;
@@ -37,17 +38,26 @@ public class Move2D : MonoBehaviour
     public float yWallForce;
     public float wallJumpTime;
 
+    //ATACK//
+    public Transform attack;
+
     //SOUNDS//
     public AudioSource jumping;
     public AudioSource dashing;
+
+    //STATS//
+    public PlayerStats ps;
     
     void Start(){
-
+        
+        movementSpeed = ps.getSpeed();
+        defaultSpeed = movementSpeed;
         runSpeed = defaultSpeed * 1.5f;
         rb = GetComponent<Rigidbody2D>();
         dashTime = startDashTime;
         feetPos.position = new Vector2(feetPos.position.x, feetPos.position.y - 0.385f);
         facingRight = true;
+        nextFireTime = 0f;
 
     }
 
@@ -104,48 +114,74 @@ public class Move2D : MonoBehaviour
 
     void dash(){
 
-        var input = Input.GetAxis("Horizontal");
+        if(Time.time > nextFireTime){
 
-        if(direction == 0){
+            var input = Input.GetAxis("Horizontal");
 
-            if(Input.GetKeyDown(KeyCode.LeftControl)){
+            if(direction == 0){
 
-                if(input < 0){
+                if(Input.GetKeyDown(KeyCode.LeftControl)){
 
-                    direction = 1;
+                    if(input < 0){
 
-                }else if (input > 0){
+                        direction = 1;
 
-                    direction = 2;
+                    }else if (input > 0){
 
+                        direction = 2;
+
+                    }
+
+                    dashing.Play();
+                    
                 }
-                dashing.Play();
-            }
-
-        }else{
-
-            if(dashTime <= 0){
-
-                direction = 0;
-                dashTime = startDashTime;
-                rb.velocity = Vector2.zero;
-
 
             }else{
 
-                dashTime -= Time.deltaTime;
+                if(dashTime <= 0){
 
-                if(direction == 1){
+                    direction = 0;
+                    dashTime = startDashTime;
+                    rb.velocity = Vector2.zero;
 
-                    animator.Play("Dash");
 
-                    rb.velocity = Vector2.left * dashSpeed;
+                }else{
 
-                }else if(direction == 2){
+                    dashTime -= Time.deltaTime;
 
-                    animator.Play("Dash");
+                    if(direction == 1){
+                        
+                        animator.Play("Dash");
 
-                    rb.velocity = Vector2.right * dashSpeed;
+                        if(isGrounded){
+                            
+                            rb.velocity = Vector2.left * dashSpeed;
+
+                        }else{
+
+                            rb.velocity = Vector2.left * (dashSpeed * 0.5f);
+
+                        }
+
+                    }else if(direction == 2){
+
+                        animator.Play("Dash");
+                        
+                        if(isGrounded){
+                            
+                            rb.velocity = Vector2.right * dashSpeed;
+
+                        }else{
+
+                            rb.velocity = Vector2.right * (dashSpeed * 0.5f);
+                            
+                        }
+
+                    }
+
+                    nextFireTime = Time.time + cooldownTime;
+                    input = 0;
+                    direction = 0;
 
                 }
 
@@ -238,12 +274,20 @@ public class Move2D : MonoBehaviour
         float f2 = -2.8f;
 
         if(!facingRight){
+            attack.localPosition = new Vector3(-attack.localPosition.x, 0f, 0f);
             frontCheck.transform.localPosition = new Vector3(f1, 0f, 0f);
         }else{
+            attack.localPosition = new Vector3(-attack.localPosition.x, 0f, 0f);
             frontCheck.transform.localPosition = new Vector3(f2, 0f, 0f);
         }
 
         facingRight = !facingRight;
+
+    }
+
+    public bool Grounded(){
+
+        return isGrounded;
 
     }
     

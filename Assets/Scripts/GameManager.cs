@@ -15,8 +15,6 @@ public class GameManager : MonoBehaviour
     private int sec;
     private int mill;
 
-    
-
     void Start()
     {
         if(SceneManager.GetActiveScene().buildIndex == 0){
@@ -37,6 +35,7 @@ public class GameManager : MonoBehaviour
             Application.Quit();
 
         }
+        
     }
 
 
@@ -66,4 +65,5 @@ public class GameManager : MonoBehaviour
 
             }
     }
+
 }

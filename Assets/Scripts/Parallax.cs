@@ -18,7 +18,6 @@ public class Parallax : MonoBehaviour
 
     }
 
-    // Start is called before the first frame update
     void Start(){
         
         previousCamPos = cam.position;
@@ -33,7 +32,6 @@ public class Parallax : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update(){
 
         for(int i = 0; i < backgrounds.Length; i++){
