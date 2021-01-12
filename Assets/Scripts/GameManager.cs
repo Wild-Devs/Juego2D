@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public Text timerMin;
     public Text timerSec;
     public Text timerMill;
+    public GameObject panel;
     public float timeLeft;
     private int min;
     private int sec;
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
+
+        panel.SetActive(false);
     }
 
     void Update()
