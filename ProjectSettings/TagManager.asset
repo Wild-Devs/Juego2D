@@ -8,6 +8,10 @@ TagManager:
   - Death
   - Enemy
   - Attack
+  - Cabeza
+  - Torso
+  - Brazos
+  - Piernas
   layers:
   - Default
   - TransparentFX

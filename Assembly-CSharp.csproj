@@ -11,7 +11,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{F0C15026-0808-1F5C-9BDC-9E0C79847FCC}</ProjectGuid>
+    <ProjectGuid>{C6379AA6-9040-B34F-F63E-05926F48D77D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -262,7 +262,7 @@
       <HintPath>D:/Programas/Unity Hub/Versiones/2019.4.4f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Assets/AssetStore/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Assets/AssetStore/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>D:/Programas/Unity Hub/Versiones/2019.4.4f1/Editor/Data/PlaybackEngines/AppleTVSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -628,104 +628,104 @@
       <HintPath>D:/Programas/Unity Hub/Versiones/2019.4.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Runtime">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect.Editor">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Editor">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Path.Editor">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Triangle.Runtime">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="PsdPlugin">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Psdimporter.Editor">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InternalAPIEngineBridge.001">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Common.Runtime">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Runtime">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Editor">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Common.Editor">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.001">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:/Instituto/M17 - Programación de Videojuegos 2D y 3D/UF1 - Programación de Videojuegos 2D/Juego2D-main/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/ismas/Documents/GitHub/Juego2D/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="AstarPathfindingProject.csproj">
-      <Project>{B7A50F9A-4C90-D33B-3D6F-A4B7D2135B79}</Project>
+      <Project>{48DB54E0-8074-B3BC-4D88-8EA46B27A470}</Project>
       <Name>AstarPathfindingProject</Name>
     </ProjectReference>
     <ProjectReference Include="PackageToolsEditor.csproj">
-      <Project>{25F0ECB4-FD6F-6B1F-4164-5C28B86B8DDF}</Project>
+      <Project>{9BBC198C-4DDB-6941-6BAA-B58D69A33F73}</Project>
       <Name>PackageToolsEditor</Name>
     </ProjectReference>
     <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
-      <Project>{C3CF18C6-647A-FC9B-B8D2-CA188011B2AA}</Project>
+      <Project>{BDF76CF2-44DD-70AF-FFCE-E26D01A2C957}</Project>
       <Name>AstarPathfindingProjectEditor</Name>
     </ProjectReference>
   </ItemGroup>
