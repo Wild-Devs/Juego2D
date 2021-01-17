@@ -7,12 +7,13 @@ using UnityEngine.UI;
 public class PlayerManager : MonoBehaviour
 {
 
-    private Vector3 initPlayerCoords;
+    public Transform initPlayerCoords;
     private Vector3 currentPlayerCoords;
     public AudioSource deathSound;
     public PlayerStats ps;
     private EnemyManager es;
     public Move2D mv;
+    private bool onMovingPlat;
     
     public Text healthText;
     public Text maxHealthText;
@@ -21,22 +22,32 @@ public class PlayerManager : MonoBehaviour
 
     public AudioSource hit;
     public AudioSource attack;
+    public AudioSource enterPortal;
+    public AudioSource pickPowerUp;
 
     private Rigidbody2D rb;
     public float xForce;
     public float yForce;
     private float input;
-    private float lastInput;
+    public float lastInput;
+
+    private GameManager gm;
+    private GameObject gameManager;
 
     void Start(){
 
-        initPlayerCoords = transform.position;
+        onMovingPlat = false;
 
-        healthText.text =  ps.getHealth().ToString();
-        maxHealthText.text = ps.getMaxHealth().ToString();
-        def.text = ps.getDeffense().ToString();
+        gameManager = GameObject.Find("GameManager");
+
+        gm = gameManager.GetComponent<GameManager>();
+
+        transform.position = initPlayerCoords.position;
+
+        UpdateUI();
 
         rb = GetComponent<Rigidbody2D>();
+
 
     }
 
@@ -50,7 +61,7 @@ public class PlayerManager : MonoBehaviour
         }
         
 
-        if(mv.Grounded()){
+        if(mv.Grounded() && !onMovingPlat){
 
             currentPlayerCoords = transform.position;
 
@@ -80,10 +91,16 @@ public class PlayerManager : MonoBehaviour
         switch(name){
 
             case "MovablePlatform":
+                onMovingPlat = true;
                 this.transform.parent = collision.transform;
+                break;
+            default:
+                onMovingPlat = false;
                 break;
 
         }
+
+        Debug.Log(collision.gameObject.tag);
 
         switch(collision.gameObject.tag){
 
@@ -114,8 +131,14 @@ public class PlayerManager : MonoBehaviour
             
                 }
 
-                rb.velocity = new Vector2(-input * xForce, 0);
+                rb.velocity = new Vector3(-input * xForce, 0f, transform.position.z);
                 rb.AddForce(Vector2.up * yForce, ForceMode2D.Impulse);
+
+                if(name.Equals("Arrow(Clone)")){
+
+                    collision.gameObject.SetActive(false);
+
+                }
 
                 hit.Play();
             
@@ -138,7 +161,7 @@ public class PlayerManager : MonoBehaviour
         switch(collider.tag){
 
             case "Death":
-            
+
                 ps.setHealth(ps.getHealth() - 20);
 
                 if(ps.getHealth() < 0){
@@ -157,6 +180,60 @@ public class PlayerManager : MonoBehaviour
                 transform.position = currentPlayerCoords;
 
                 break;
+
+            case "Finish":
+
+                //SAVE//
+                PlayerPrefs.SetFloat("PlayerHealth", ps.getHealth());
+                PlayerPrefs.SetFloat("MaxHealth", ps.getMaxHealth());
+                PlayerPrefs.SetFloat("Attack", ps.getAttack());
+                PlayerPrefs.SetInt("Deffense", ps.getDeffense());
+                PlayerPrefs.SetFloat("Speed", ps.getSpeed());
+
+                PlayerPrefs.Save();
+
+                enterPortal.Play();
+
+                gm.ChangeScene();
+
+                break;
+
+            case "PowerUp":
+
+                GameObject powerUp = GameObject.Find(collider.gameObject.name);
+
+                PowerUpStats pw = powerUp.GetComponent<PowerUpStats>();
+
+                ps.setAttack(ps.getAttack() + pw.getAttack());
+
+                ps.setDeffense(ps.getDeffense() + pw.getDeffense());
+                def.text = ps.getDeffense().ToString();
+
+                if(pw.getHealth() + ps.getHealth() > ps.getMaxHealth()){
+                    ps.setHealth(ps.getMaxHealth());
+                }else{
+                    ps.setHealth(ps.getHealth() + pw.getHealth());
+                }
+                healthText.text = ps.getHealth().ToString();
+                sliderHealth.value = ps.getHealth();
+
+                ps.setMaxHealth(ps.getMaxHealth() + pw.getMaxHealth());
+                maxHealthText.text = ps.getMaxHealth().ToString();
+                sliderHealth.maxValue = ps.getMaxHealth();
+
+                ps.setSpeed(ps.getSpeed() + pw.getSpeed());
+
+                pickPowerUp.Play();
+
+                powerUp.SetActive(false);
+
+                break;
+            
+            case "End":
+
+                gm.Ending();
+
+                break;
                 
         }
             
@@ -166,7 +243,29 @@ public class PlayerManager : MonoBehaviour
     void Death(){
 
         deathSound.Play();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        gm.ReloadScene();
+
+    }
+
+    void UpdateUI() {
+
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+
+            healthText.text = ps.getHealth().ToString();
+            maxHealthText.text = ps.getMaxHealth().ToString();
+            def.text = ps.getDeffense().ToString();
+
+        }
+        else if(SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1){
+
+            healthText.text = PlayerPrefs.GetFloat("PlayerHealth").ToString();
+            maxHealthText.text = PlayerPrefs.GetFloat("MaxHealth").ToString();
+            def.text = PlayerPrefs.GetInt("Deffense").ToString();
+
+            sliderHealth.value = PlayerPrefs.GetFloat("PlayerHealth");
+
+        }
 
     }
 

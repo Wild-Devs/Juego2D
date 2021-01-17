@@ -5,65 +5,81 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
-    
-    //TIMER//
-    public Text timerMin;
-    public Text timerSec;
-    public Text timerMill;
-    public float timeLeft;
-    private int min;
-    private int sec;
-    private int mill;
+    public PlayerStats ps;
+    private GameObject player;
+    public  Animator endPanel;
 
     void Start()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 0){
-        }else{
+        
+        if(SceneManager.GetActiveScene().buildIndex == 1){
+
             Time.timeScale = 1f;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+
+            player = GameObject.Find("Player");
+
+            ps = player.GetComponent<PlayerStats>();
+
+            ps.setAttack(15);
+            ps.setHealth(200);
+            ps.setMaxHealth(200);
+            ps.setDeffense(3);
+            ps.setSpeed(5);
+
+        }else if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1){
+            Time.timeScale = 1f;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+
+            player = GameObject.Find("Player");
+
+            ps = player.GetComponent<PlayerStats>();
+
+            ps.setAttack(PlayerPrefs.GetFloat("Attack"));
+            ps.setHealth(PlayerPrefs.GetFloat("PlayerHealth"));
+            ps.setMaxHealth(PlayerPrefs.GetFloat("MaxHealth"));
+            ps.setDeffense(PlayerPrefs.GetInt("Deffense"));
+            ps.setSpeed(PlayerPrefs.GetFloat("Speed"));
         }
     }
 
     void Update()
     {
 
-        startTimer();
-
         if(Input.GetKey(KeyCode.Escape)){
 
-            Application.Quit();
+            Quit();
 
         }
         
     }
 
+    public void ChangeScene(){
 
-    void startTimer(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
-            timeLeft -= Time.deltaTime;
+    }
 
-            min = (int) (timeLeft / 60) % 60;
-            sec = (int) (timeLeft % 60);
-            mill = (int) (timeLeft * 1000) % 1000;
+    public void ReloadScene() {
 
-            string timerStringMin = string.Format("{0:00}:",min);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
-            timerMin.text = timerStringMin;
+    }
 
-            string timerStringSec = string.Format("{0:00}.",sec);
+    public void Ending(){
 
-            timerSec.text = timerStringSec;
+        endPanel.Play("end");
 
-            string timerStringMill = string.Format("{0:000}",mill);
+        player.SetActive(false);
 
-            timerMill.text = timerStringMill;
+    }
 
-            if(timeLeft <= 0){
+    public void Quit(){
 
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Application.Quit();
 
-            }
     }
 
 }

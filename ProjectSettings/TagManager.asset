@@ -8,6 +8,9 @@ TagManager:
   - Death
   - Enemy
   - Attack
+  - Stairs
+  - PowerUp
+  - End
   layers:
   - Default
   - TransparentFX
