@@ -17,7 +17,6 @@ public class PlayerStats : MonoBehaviour
     public void setHealth(float health){
 
         this.health = health;
-
     }
 
     public float getHealth(){
@@ -92,8 +91,7 @@ public class PlayerStats : MonoBehaviour
     public void setTorso(GameObject equipable) {torso = equipable; }
 
     public GameObject getTorso() {
-        if (torso == null) return null;
-        else return torso;
+            return torso;
     }
 
     //EQUIPO BRAZO DERECHO//
