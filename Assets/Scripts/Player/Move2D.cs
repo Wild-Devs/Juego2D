@@ -14,7 +14,7 @@ public class Move2D : MonoBehaviour
     public Animator animator;
     public float cooldownTime;
     private float nextFireTime;
-    private float movementSpeed;
+    public float movementSpeed;
     private float defaultSpeed;
     private float runSpeed;
 
@@ -201,6 +201,7 @@ public class Move2D : MonoBehaviour
             jumpTimeCounter = jumpTime;
             rb.velocity = Vector2.up * jumpForce;
             jumping.Play();
+            
 
         }
 
@@ -259,6 +260,7 @@ public class Move2D : MonoBehaviour
         if(wallJumping){
 
             rb.velocity = new Vector2(xWallForce * -input, yWallForce);
+            
         }
     }
 
@@ -288,6 +290,34 @@ public class Move2D : MonoBehaviour
     public bool Grounded(){
 
         return isGrounded;
+
+    }
+
+    void OnTriggerStay2D(Collider2D collider){
+
+        switch(collider.tag){
+
+            case "Stairs":
+
+                transform.position = new Vector2(transform.position.x, transform.position.y);
+
+                if(Input.GetKey(KeyCode.W)){
+
+                    rb.velocity = new Vector2(0f, movementSpeed);
+
+                }else if(Input.GetKey(KeyCode.S)){
+
+                    rb.velocity = new Vector2(0f, -movementSpeed);
+
+                }else{
+
+                    rb.velocity = new Vector2(0f, 0f);
+
+                }
+
+                break;
+
+        }
 
     }
     

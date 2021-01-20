@@ -10,11 +10,16 @@ public class EnemyManager : MonoBehaviour
 
     private GameObject player;
     private PlayerStats ps;
+    private Rigidbody2D rb;
 
     void Start(){
 
         player = GameObject.Find("Player");
         ps = player.GetComponent<PlayerStats>();
+
+        if(GetComponent<Rigidbody2D>()){
+            rb = gameObject.GetComponent<Rigidbody2D>();
+        }
 
     }
 
@@ -59,6 +64,8 @@ public class EnemyManager : MonoBehaviour
     void OnTriggerStay2D(Collider2D collider){
 
         if(collider.tag.Equals("Attack") && Input.GetKeyDown(KeyCode.Mouse0)){
+
+            Debug.Log("ENTERED");
 
             GameObject attack = GameObject.FindGameObjectWithTag("Attack");
 
