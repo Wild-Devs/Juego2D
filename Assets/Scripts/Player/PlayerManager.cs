@@ -28,6 +28,8 @@ public class PlayerManager : MonoBehaviour
     private float input;
     private float lastInput;
 
+    public ItemManager itemManager;
+
     void Start(){
 
         initPlayerCoords = transform.position;
@@ -38,6 +40,7 @@ public class PlayerManager : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
 
+        itemManager = GameObject.Find("GameManager").gameObject.GetComponent<ItemManager>();
     }
 
     void Update(){
