@@ -65,11 +65,12 @@
     <Compile Include="Assets\AssetStore\2DTilezoneFiles\Scripts\AutoColliderGenerator.cs" />
     <Compile Include="Assets\AssetStore\2DTilezoneFiles\Scripts\PixelPerfectCamera.cs" />
     <Compile Include="Assets\AssetStore\2DTilezoneFiles\Scripts\TileInfo.cs" />
-    <Compile Include="Assets\Scripts\Abilities\AbilityController.cs" />
-    <Compile Include="Assets\Scripts\Abilities\EnumsAbilities.cs" />
-    <Compile Include="Assets\Scripts\Abilities\Item.cs" />
-    <Compile Include="Assets\Scripts\Abilities\ItemManager.cs" />
-    <Compile Include="Assets\Scripts\Abilities\ItemProperties.cs" />
+    <Compile Include="Assets\Scripts\Abilities\Management\AbilityController.cs" />
+    <Compile Include="Assets\Scripts\Abilities\Management\EnumsAbilities.cs" />
+    <Compile Include="Assets\Scripts\Abilities\Management\Item.cs" />
+    <Compile Include="Assets\Scripts\Abilities\Management\ItemManager.cs" />
+    <Compile Include="Assets\Scripts\Abilities\Management\ItemProperties.cs" />
+    <Compile Include="Assets\Scripts\Abilities\SeguirAlRaton.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
