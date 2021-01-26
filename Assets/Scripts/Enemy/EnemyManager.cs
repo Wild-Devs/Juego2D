@@ -11,6 +11,10 @@ public class EnemyManager : MonoBehaviour
     private GameObject player;
     private PlayerStats ps;
     private Rigidbody2D rb;
+    private BoxCollider2D box;
+
+    private float cooldown = 0f;
+    private float nextCooldown = 0.5f;
 
     void Start(){
 
@@ -20,6 +24,8 @@ public class EnemyManager : MonoBehaviour
         if(GetComponent<Rigidbody2D>()){
             rb = gameObject.GetComponent<Rigidbody2D>();
         }
+
+        box = gameObject.GetComponent<BoxCollider2D>();
 
     }
 
@@ -65,19 +71,59 @@ public class EnemyManager : MonoBehaviour
 
         if(collider.tag.Equals("Attack") && Input.GetKeyDown(KeyCode.Mouse0)){
 
-            Debug.Log("ENTERED");
+            if(Time.time > cooldown){
 
-            GameObject attack = GameObject.FindGameObjectWithTag("Attack");
+                setHealth(getHealth() - ps.getAttack());
 
-            SpriteRenderer sprite = attack.GetComponent<SpriteRenderer>();
+                StartCoroutine("ChangeSprite");
 
-            Color color = Random.ColorHSV();
+                cooldown = Time.time + nextCooldown;
 
-            sprite.color = color;
-
-            setHealth(getHealth() - ps.getAttack());
+            }
 
         }
+
+    }
+
+    void OnCollisionEnter2D(Collision2D collision){
+
+        if(gameObject.name == "Projectile(Clone)"){
+
+            if(collision.collider.gameObject.layer == 8){
+
+                Destroy(this.gameObject);
+
+            }
+
+            if(collision.collider.name == "Boss"){
+
+                StartCoroutine("GoThrough");
+
+            }
+
+        }
+
+    }
+
+    IEnumerator GoThrough(){
+
+        box.enabled = false;
+
+        yield return new WaitForSeconds(0.3f);
+
+        box.enabled = true;
+
+    }
+
+    IEnumerator ChangeSprite(){
+
+        SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
+
+        sprite.color = Color.black;
+
+        yield return new WaitForSeconds(0.1f);
+
+        sprite.color = Color.white;       
 
     }
 

@@ -11,6 +11,7 @@ TagManager:
   - Stairs
   - PowerUp
   - End
+  - Boss
   layers:
   - Default
   - TransparentFX

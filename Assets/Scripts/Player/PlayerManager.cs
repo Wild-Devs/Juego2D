@@ -29,10 +29,13 @@ public class PlayerManager : MonoBehaviour
     public float xForce;
     public float yForce;
     private float input;
-    public float lastInput;
+    private float lastInput;
 
     private GameManager gm;
     private GameObject gameManager;
+
+    private float cooldown = 0f;
+    private float nextCooldown = 0.5f;
 
     void Start(){
 
@@ -75,9 +78,21 @@ public class PlayerManager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Mouse0)){
 
-            attack.Play();
+            if(Time.time > cooldown){
+
+                attack.Play();
+
+                cooldown = Time.time + nextCooldown;
+
+            }
 
         }
+
+    }
+
+    public float getInput(){
+
+        return input;
 
     }
 
@@ -100,7 +115,7 @@ public class PlayerManager : MonoBehaviour
 
         }
 
-        Debug.Log(collision.gameObject.tag);
+        //Debug.Log(collision.gameObject.tag);
 
         switch(collision.gameObject.tag){
 
@@ -134,9 +149,9 @@ public class PlayerManager : MonoBehaviour
                 rb.velocity = new Vector3(-input * xForce, 0f, transform.position.z);
                 rb.AddForce(Vector2.up * yForce, ForceMode2D.Impulse);
 
-                if(name.Equals("Arrow(Clone)")){
+                if(name.Equals("Arrow(Clone)") || name.Equals("Projectile(Clone)")){
 
-                    collision.gameObject.SetActive(false);
+                    Destroy(collision.gameObject);
 
                 }
 
@@ -234,7 +249,7 @@ public class PlayerManager : MonoBehaviour
                 gm.Ending();
 
                 break;
-                
+                                            
         }
             
 
@@ -264,6 +279,7 @@ public class PlayerManager : MonoBehaviour
             def.text = PlayerPrefs.GetInt("Deffense").ToString();
 
             sliderHealth.value = PlayerPrefs.GetFloat("PlayerHealth");
+            sliderHealth.maxValue = PlayerPrefs.GetFloat("MaxHealth");
 
         }
 

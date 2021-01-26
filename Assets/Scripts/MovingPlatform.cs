@@ -10,6 +10,7 @@ public class MovingPlatform : MonoBehaviour
     public bool x;
     public bool y;
     public float velocity;
+    public bool isEnemy;
 
     void Start()
     {
