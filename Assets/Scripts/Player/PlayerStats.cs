@@ -10,8 +10,9 @@ public class PlayerStats : MonoBehaviour
     public float attack;
     public float speed;
     public int def;
-    
-    
+    public int maxDef;
+
+
     //HEALTH//
     public void setHealth(float health){
 
@@ -60,6 +61,20 @@ public class PlayerStats : MonoBehaviour
     public int getDeffense(){
 
         return def;
+
+    }
+
+    public void setMaxDeffense(int maxDef)
+    {
+
+        this.maxDef = maxDef;
+
+    }
+
+    public int getMaxDeffense()
+    {
+
+        return maxDef;
 
     }
 

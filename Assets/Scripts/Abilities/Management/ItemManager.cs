@@ -105,7 +105,7 @@ public class ItemManager : MonoBehaviour {
         OcultarInventario();
     }
 
-    public void QuePanelesCambianDeColor() {
+    private void QuePanelesCambianDeColor() {
         switch (item.gameObject.GetComponent<Item>().propiedades.GetPosicion()) {
             case EnumsAbilities.PosicionesEquipo.brazos:
                 CambiarColorPanel(slots[(int)EnumsAbilities.SlotsInventory.brazoIzquierdo]);
@@ -125,6 +125,11 @@ public class ItemManager : MonoBehaviour {
     private void CambiarColorPanel(GameObject panel) {
         CanvasRenderer renderer = panel.GetComponent<CanvasRenderer>();
         renderer.SetColor(Color.green);
+    }
+
+    public void eliminarPosicion(int posicion) {
+        dropProperties[posicion] = null;
+        isEquipado[posicion] = false;
     }
 
 }

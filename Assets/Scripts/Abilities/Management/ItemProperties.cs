@@ -28,7 +28,6 @@ public class ItemProperties {
                     indexEquipo = j;
                     AsignarposicionEquipo(i);
                     sprite = EnumsAbilities.nombresSpritesItems[(int)equipables];
-                    Debug.Log(sprite);
                     flag = !flag;
                 }
             }
