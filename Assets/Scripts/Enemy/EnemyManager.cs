@@ -58,7 +58,7 @@ public class EnemyManager : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collider){
 
-        if(collider.tag.Equals("Attack") && Input.GetKeyDown(KeyCode.Mouse0)){
+        if(collider.tag.Equals("Attack")){
 
             GameObject attack = GameObject.FindGameObjectWithTag("Attack");
 

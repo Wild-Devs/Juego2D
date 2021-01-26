@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Brazo : HabilidadesConAccion {
     public bool isFacingDerecha;
-    public float dmg, cooldown;
+    public float dmg;
 
     public void SeguirAlRaton() {
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - this.gameObject.transform.position;
