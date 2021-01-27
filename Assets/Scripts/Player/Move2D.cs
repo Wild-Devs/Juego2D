@@ -47,6 +47,8 @@ public class Move2D : MonoBehaviour
 
     //STATS//
     public PlayerStats ps;
+    private bool canWallSlide = false;
+    private bool canDash = false;
     
     void Start(){
         
@@ -70,12 +72,16 @@ public class Move2D : MonoBehaviour
     }
 
     void Update(){
-        
+
         jump();
 
-        wallSlide();
+        if(canWallSlide){
+            wallSlide();
+        }
 
-        dash();
+        if(canDash){
+            dash();
+        }
 
     }
 
@@ -318,6 +324,18 @@ public class Move2D : MonoBehaviour
                 break;
 
         }
+
+    }
+
+    public void canPlayerWallSlide(bool wallsliding){
+
+        canWallSlide = wallsliding;
+
+    }
+
+    public void canPlayerDash(bool dash){
+
+        canDash = dash;
 
     }
     
