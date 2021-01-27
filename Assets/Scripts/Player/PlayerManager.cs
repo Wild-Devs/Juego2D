@@ -37,6 +37,14 @@ public class PlayerManager : MonoBehaviour
     private float cooldown = 0f;
     private float nextCooldown = 0.5f;
 
+    public ItemManager itemManager;
+
+    public void ActualizarUI() {
+        healthText.text = ps.getHealth().ToString();
+        maxHealthText.text = ps.getMaxHealth().ToString();
+        def.text = ps.getDeffense().ToString();
+    }
+
     void Start(){
 
         onMovingPlat = false;
@@ -50,6 +58,8 @@ public class PlayerManager : MonoBehaviour
         UpdateUI();
 
         rb = GetComponent<Rigidbody2D>();
+
+        itemManager = GameObject.Find("GameManager").gameObject.GetComponent<ItemManager>();
 
 
     }

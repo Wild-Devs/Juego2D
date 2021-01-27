@@ -67,24 +67,6 @@ public class EnemyManager : MonoBehaviour
     }
 
 
-    void OnTriggerStay2D(Collider2D collider){
-
-        if(collider.tag.Equals("Attack") && Input.GetKeyDown(KeyCode.Mouse0)){
-
-            if(Time.time > cooldown){
-
-                setHealth(getHealth() - ps.getAttack());
-
-                StartCoroutine("ChangeSprite");
-
-                cooldown = Time.time + nextCooldown;
-
-            }
-
-        }
-
-    }
-
     void OnCollisionEnter2D(Collision2D collision){
 
         if(gameObject.name == "Projectile(Clone)"){

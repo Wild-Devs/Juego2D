@@ -6,16 +6,23 @@ public class PlayerStats : MonoBehaviour
 {
 
     public float health;
-    public float maxHealth;
+    private float maxHealth;
     public float attack;
     public float speed;
-    public int def;
-    
-    
+    private int def;
+    private int maxDef;
+    private PlayerManager manager;
+
+    private void Start() {
+        manager = this.gameObject.GetComponent<PlayerManager>();
+    }
+
+
     //HEALTH//
     public void setHealth(float health){
 
         this.health = health;
+        manager.ActualizarUI();
 
     }
 
@@ -29,6 +36,7 @@ public class PlayerStats : MonoBehaviour
     public void setMaxHealth(float maxHealth){
 
         this.maxHealth = maxHealth;
+        manager.ActualizarUI();
 
     }
 
@@ -55,12 +63,27 @@ public class PlayerStats : MonoBehaviour
     public void setDeffense(int def){
 
         this.def = def;
+        manager.ActualizarUI();
 
     }
 
     public int getDeffense(){
 
         return def;
+
+    }
+
+    public void setMaxDeffense(int maxDef)
+    {
+
+        this.maxDef = maxDef;
+
+    }
+
+    public int getMaxDeffense()
+    {
+
+        return maxDef;
 
     }
 

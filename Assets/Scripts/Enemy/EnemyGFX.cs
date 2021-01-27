@@ -15,7 +15,5 @@ public class EnemyGFX : MonoBehaviour
 //        }
 //    }
 
-        Debug.Log(aiPath.desiredVelocity.x);
-
     }
 }

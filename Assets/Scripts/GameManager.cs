@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 
     public PlayerStats ps;
     private GameObject player;
-    public  Animator endPanel;
+    public Animator endPanel;
 
     private bool gamePaused;
     public GameObject pauseMenu;
@@ -16,27 +16,21 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gamePaused = false;
-        
-        if(SceneManager.GetActiveScene().buildIndex == 1){
+
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
 
             Time.timeScale = 1f;
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
 
             player = GameObject.Find("Player");
 
             ps = player.GetComponent<PlayerStats>();
 
-            ps.setAttack(15);
-            ps.setHealth(200);
-            ps.setMaxHealth(200);
-            ps.setDeffense(3);
-            ps.setSpeed(5);
+        }
+        else if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1)
+        {
 
-        }else if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1){
             Time.timeScale = 1f;
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
 
             player = GameObject.Find("Player");
 
@@ -53,45 +47,53 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetKey(KeyCode.Escape)){
+        if (Input.GetKey(KeyCode.Escape))
+        {
 
             Quit();
 
         }
-        
-        if(canPause){
-            if (Input.GetKeyDown(KeyCode.Escape)){
+
+        if (canPause)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
                 if (!gamePaused)
                 {
                     Pause();
                 }
-                else{
+                else
+                {
                     Resume();
                 }
             }
         }
-        
+
     }
 
-    public void ChangeScene(){
+    public void ChangeScene()
+    {
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
     }
 
-    public void ReloadScene() {
+    public void ReloadScene()
+    {
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
 
-    public void ResetGame(){
+    public void ResetGame()
+    {
 
         SceneManager.LoadScene(0);
 
     }
 
-    public void Ending(){
+    public void Ending()
+    {
 
         endPanel.Play("end");
 
@@ -99,16 +101,16 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void Quit(){
+    public void Quit()
+    {
 
         Application.Quit();
 
     }
 
-    public void Resume(){
+    public void Resume()
+    {
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
         player.GetComponent<Move2D>().enabled = true;
         player.GetComponent<PlayerManager>().enabled = true;
 
@@ -118,10 +120,8 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void Pause(){
-
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+    void Pause()
+    {
 
         Time.timeScale = 0f;
         player.GetComponent<Move2D>().enabled = false;
