@@ -39,7 +39,7 @@ public class arrow : MonoBehaviour
 
         if(collision.collider.gameObject.layer == 8){
 
-            this.gameObject.SetActive(false);
+            Destroy(this.gameObject);
 
         }
 

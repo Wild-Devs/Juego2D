@@ -11,10 +11,12 @@ public class MovingPlatform : MonoBehaviour
     public bool y;
     public float velocity;
     public bool isEnemy;
+    private float scale;
 
     void Start()
     {
         startPos = transform.position;
+        scale = transform.localScale.x;
     }
 
     
@@ -37,6 +39,39 @@ public class MovingPlatform : MonoBehaviour
                     transform.position = new Vector3(transform.position.x, startPos.y + Mathf.PingPong(Time.time, travelDistance) * velocity, transform.position.z);
                 }
             } 
+        }
+
+        if(gameObject.name == "BasicEnemy"){
+
+            if(reverse){
+
+                if(Mathf.PingPong(Time.time, travelDistance) <= 0.1f){
+                
+                    transform.localScale = new Vector3(-scale, transform.localScale.y, transform.localScale.z);
+                }
+
+                if(Mathf.PingPong(Time.time, travelDistance) >= travelDistance - 0.1f){
+                
+                    transform.localScale = new Vector3(scale, transform.localScale.y, transform.localScale.z);
+
+                }
+
+            }else{
+
+                if(Mathf.PingPong(Time.time, travelDistance) <= 0.1f){
+                
+                    transform.localScale = new Vector3(scale, transform.localScale.y, transform.localScale.z);
+                }
+
+                if(Mathf.PingPong(Time.time, travelDistance) >= travelDistance - 0.1f){
+                
+                    transform.localScale = new Vector3(-scale, transform.localScale.y, transform.localScale.z);
+
+                }
+
+            }
+
+            
         }
 
     }

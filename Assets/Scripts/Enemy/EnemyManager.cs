@@ -15,6 +15,7 @@ public class EnemyManager : MonoBehaviour
 
     private float cooldown = 0f;
     private float nextCooldown = 0.5f;
+    private float time = 0f;
 
     void Start(){
 
@@ -33,7 +34,21 @@ public class EnemyManager : MonoBehaviour
 
         if(getHealth() <= 0){
 
-            gameObject.SetActive(false);
+            Destroy(this.gameObject);
+
+        }
+
+        if(gameObject.name == "Projectile(Clone)"){
+
+            time += Time.deltaTime;
+
+            nextCooldown = 5;
+
+            if(time > nextCooldown){
+
+                Destroy(this.gameObject);
+
+            }
 
         }
 

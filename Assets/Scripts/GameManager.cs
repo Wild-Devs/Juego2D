@@ -20,23 +20,14 @@ public class GameManager : MonoBehaviour
         if(SceneManager.GetActiveScene().buildIndex == 1){
 
             Time.timeScale = 1f;
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
 
             player = GameObject.Find("Player");
 
             ps = player.GetComponent<PlayerStats>();
 
-            ps.setAttack(15);
-            ps.setHealth(200);
-            ps.setMaxHealth(200);
-            ps.setDeffense(3);
-            ps.setSpeed(5);
-
         }else if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1){
+
             Time.timeScale = 1f;
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
 
             player = GameObject.Find("Player");
 
@@ -107,8 +98,6 @@ public class GameManager : MonoBehaviour
 
     public void Resume(){
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
         player.GetComponent<Move2D>().enabled = true;
         player.GetComponent<PlayerManager>().enabled = true;
 
@@ -119,9 +108,6 @@ public class GameManager : MonoBehaviour
     }
 
     void Pause(){
-
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
 
         Time.timeScale = 0f;
         player.GetComponent<Move2D>().enabled = false;
